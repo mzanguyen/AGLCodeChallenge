@@ -1,8 +1,26 @@
 ﻿@page
 @model PrivacyModel
 @{
-    ViewData["Title"] = "Privacy Policy";
+    ViewData["Title"] = "Disclaimer";
 }
-<h1>@ViewData["Title"]</h1>
+<div class="text-center">
+    <h4>@ViewData["Title"]</h4>
+</div>
 
-<p>Use this page to detail your site's privacy policy.</p>
+<p class="lead">This solution is designed based on the following assumptions</p>
+<ul>
+    <li>AGL webservice at http://agl-developer-test.azurewebsites.net/people.json does not require authentication or authorization</li>
+    <li>Main purpose of this challenge is to showcase .Net skill. Based on this assumption, .Net core Razore page is chosen instead of cooler SPA setup (Angular, React etc..)</li>
+    <li>Styling and front-end development is not the main concern</li>
+    <li>The solution is written with S.O.L.I.D princliples in mind => some code may seem like an overkill for a simple purpose of consuming an API. However, with this setup, different filter, ordering and different API can be consumed with minimal code changes</li>
+    <li>CI/CD pipeline can be simplified => this solution does not set up proper CI/CD for production</li>
+</ul>
+
+<p class="lead">Tech debt:</p>
+<ul>
+    <li>Set up proper logging mechanism</li>
+    <li>Set up middleware and interceptor for HTTPRequest</li>
+    <li>Set up Exception handler middleware</li>
+    <li>This code is not production ready</li>
+</ul>
+

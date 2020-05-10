@@ -33,8 +33,7 @@ namespace AGLChallenge
             //TODO: Increase handler life time if AGL web service latency is slow.
             services.AddHttpClient<IAGLWebService, AGLWebService>();
 
-            //TODO: double check scope vs transient for each services
-            services.AddScoped<IPetService, PetService>();
+            services.AddTransient<IPetService, PetService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

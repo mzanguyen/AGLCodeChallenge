@@ -20,7 +20,7 @@ namespace AGLChallenge.Services.Test.Services
     {
         [Theory]
         [MemberData(nameof(GetPeopleTestParams))]
-        public async Task GetPeopleTest(string filePath, int count, int countFemale)
+        public async Task GetPeople_ShouldDeserialize(string filePath, int count, int countFemale)
         {
             var webService = CreateTestService(filePath);
 
@@ -60,6 +60,7 @@ namespace AGLChallenge.Services.Test.Services
             yield return new object[] { "MockData/AGLWebServicePeopleSample1.json", 6, 3 };
             yield return new object[] { "MockData/AGLWebServicePeopleSample2.json", 5, 2 };
             yield return new object[] { "MockData/AGLWebServicePeopleSample3.json", 3, 0 };
+            yield return new object[] { "MockData/AGLWebServicePeopleSample4.json", 0, 0 };
         }
         #endregion
     }

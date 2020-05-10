@@ -16,6 +16,7 @@ namespace AGLChallenge.Pages
         private readonly ILogger<IndexModel> _logger;
         private readonly IPetService _petService;
         public List<PetViewModel> DisplayItem { get; set; }
+
         public IndexModel(ILogger<IndexModel> logger, IPetService petService)
         {
             _logger = logger;
@@ -24,9 +25,16 @@ namespace AGLChallenge.Pages
 
         public async Task OnGet()
         {
-            var petList = await _petService.GetCatByOwnerGender();
-
-            DisplayItem = petList.Select(item => new PetViewModel(item.Key, item.Value?.Select(pet => pet?.Name))).ToList();
+            try
+            {
+                var petList = await _petService.GetCatByOwnerGender();
+                DisplayItem = petList.Select(item => new PetViewModel(item.Key, item.Value?.Select(pet => pet?.Name))).ToList();
+            }
+            catch(Exception e)
+            {
+                _logger.LogError($"Error on IndexModel:OnGet at {DateTime.UtcNow}: {e.StackTrace}");
+                DisplayItem = new List<PetViewModel>();
+            }
         }
     }
 }

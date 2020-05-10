@@ -17,7 +17,7 @@ namespace AGLChallenge.Client.IntegrationTest
         [Theory]
         [InlineData("/")]
         [InlineData("/Index")]
-        public async Task GetPetListSuccess(string url)
+        public async Task OnGet_ShouldReturnPetList(string url)
         {
             // Arrange
             var client = _factory.CreateClient();

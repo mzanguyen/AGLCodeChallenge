@@ -16,11 +16,15 @@ namespace AGLChallenge.Services.Services
 
         //TODO: Magic string 'cat'
         public async Task<SortedList<string, List<PetDTO>>> GetCatByOwnerGender() 
-            => await GetPets(pet => pet.Type.Equals("cat", StringComparison.OrdinalIgnoreCase), pet => pet.OwnerGender, pet => pet.Name); 
-    
+            => await GetPets(pet => pet.Type.Equals("cat", StringComparison.OrdinalIgnoreCase), pet => pet.OwnerGender, pet => pet.Name);
+
 
 
         #region Helpers
+        /// <summary>
+        /// Apply filter and ordering to pet list
+        /// This method can be reused for different sorting and filtering
+        /// </summary>
         public async Task<SortedList<T, List<PetDTO>>> GetPets<T>(Func<PetDTO, bool> filter, Func<PetDTO, T> groupBy, Func<PetDTO, string> orderBy)
         {
             var result = new SortedList<T, List<PetDTO>>();
@@ -28,6 +32,7 @@ namespace AGLChallenge.Services.Services
 
             var groupedPets =  pets.Where(filter).GroupBy(groupBy);
 
+            //Apply ordering to values list
             foreach(var item in groupedPets) {
                 result.Add(item.Key, item.OrderBy(orderBy).ToList());
             }
