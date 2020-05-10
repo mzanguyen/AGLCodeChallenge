@@ -1,0 +1,55 @@
+[
+  {
+    "name": "Bob",
+    "gender": "Male",
+    "age": 23,
+    "pets": [
+      {
+        "name": "Garfield",
+        "type": "Cat"
+      },
+      {
+        "name": "Allias",
+        "type": "Dog"
+      }
+    ]
+  },
+  {
+    "name": "Steve",
+    "gender": "Trans",
+    "age": 45,
+    "pets": [
+      {
+        "name": "Tom",
+        "type": "Cat"
+      },
+      {
+        "name": "Sammie",
+        "type": "Dog"
+      }
+    ]
+  },
+  {
+    "name": "Fred",
+    "gender": "Male",
+    "age": 40,
+    "pets": [
+      {
+        "name": "Tom",
+        "type": "Cat"
+      },
+      {
+        "name": "Max",
+        "type": "Cat"
+      },
+      {
+        "name": "Ali",
+        "type": "Dog"
+      },
+      {
+        "name": "Jim",
+        "type": "Cat"
+      }
+    ]
+  }
+]

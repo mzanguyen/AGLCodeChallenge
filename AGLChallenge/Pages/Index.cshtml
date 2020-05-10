@@ -1,0 +1,27 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">AGL Programming Challenge</h1>
+    <p>You need to write some code to consume the json and output a list of all the cats in alphabetical order under a heading of the gender of their owner.</p>
+    
+</div>
+<div>
+    <p class="lead">Result: </p>
+    <ul id="result">
+    @foreach (var item in Model.DisplayItem)
+    {
+        <li>
+            @item.Gender
+            <ul>
+                @foreach (var name in item.PetNames)
+                {
+                    <li>@name</li>
+                }
+            </ul>
+        </li>
+    }
+</ul></div>
